@@ -20,9 +20,9 @@ class Graph_Matrix {
         int vertex_count = 0;
         bool is_oriented = false;
     public:
-    Graph_Matrix(int vert_count, bool oriented = false)
+    explicit Graph_Matrix(int vert_count, bool oriented = false)
         : is_oriented(oriented), vertex_count(vert_count) {
-        for (int i = 0; i < vertex_count; i++) {;
+        for (int i = 0; i < vertex_count; i++) {
             for(int j = 0; j < vertex_count; j++) {
                 adjacent[i][j] = 0;
             }
