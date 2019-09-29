@@ -11,6 +11,9 @@
 #include <cassert>
 #include"tm_functions.h"
 #include"characters.h"
+#include "alternative_realities.h"
+
+using namespace std;
 
 
 class Book {
@@ -21,11 +24,12 @@ private:
     int pages;
     string anotation_file_name;
     vector<Characters> all_characters;
+    Additional additional;
 
 public:
     Book () = default;
     Book (const string& new_name, const vector<string>& new_authors, const tm& new_release, const int new_pages, const string& anotation = "")
-        : name(new_name), authors(new_authors), release_date(new_release), anotation_file_name(anotation){
+        : name(new_name), authors(new_authors), release_date(new_release), anotation_file_name(anotation), additional(){
         assert(new_pages > 0);
         pages = new_pages;
     }
@@ -56,6 +60,9 @@ public:
             anotation.close();
         }
         else {cout<<"Can't find any anotation to this book";}
+    }
+    Additional& get_additional_info () {
+        return additional;
     }
 
     void change_name (const string& new_name) {
@@ -260,6 +267,27 @@ vector<Book> search_by_characters (const vector<Book>& books, string character_n
     }
 
     return result;
+}
+
+vector<Book> search_by_film_base (const vector<Book>& books, string film_base) {
+    vector<Book> result;
+    for (auto item : books) {
+        if (search(item.get_additional_info().get_film_base().begin(), item.get_additional_info().get_film_base().end(),
+                film_base.begin(), film_base.end()) != item.get_additional_info().get_film_base().end()){
+            result.push_back(item);
+        }
+        return result;
+    }
+}
+vector<Book> search_book_by_film (const vector<Book>& books, string film) {
+    vector<Book> result;
+    for (auto item : books) {
+        if (search(item.get_additional_info().get_film_by_book().begin(), item.get_additional_info().get_film_by_book().end(),
+                   film.begin(), film.end()) != item.get_additional_info().get_film_by_book().end()){
+            result.push_back(item);
+        }
+        return result;
+    }
 }
 
 #endif //LAB1_GRAPH_TREE_BOOKS_H
