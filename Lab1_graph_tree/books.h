@@ -9,12 +9,11 @@
 #include<algorithm>
 #include<string>
 #include <cassert>
-#include"tm_functions.h"
-#include"characters.h"
+#include "tm_functions.h"
+#include "characters.h"
 #include "alternative_realities.h"
 
 using namespace std;
-
 
 class Book {
 private:
@@ -34,13 +33,13 @@ public:
         pages = new_pages;
     }
 
-    string& get_name () const {
+    string get_name () const {
         return name;
     }
-    vector<Characters>& get_characters () const {
+    vector<Characters> get_characters () const {
         return all_characters;
     }
-    tm& get_date () const {
+    tm get_date () const {
         return release_date;
     }
     int get_page_amount () const {
@@ -48,6 +47,9 @@ public:
     }
     vector<string> get_authors () const {
         return authors;
+    }
+    string get_anotation () const {
+        return anotation_file_name;
     }
     void read_anotation() {
         ifstream anotation;
@@ -61,11 +63,12 @@ public:
         }
         else {cout<<"Can't find any anotation to this book";}
     }
-    Additional& get_additional_info () {
+    Additional get_additional_info () {
         return additional;
     }
 
     void change_name (const string& new_name) {
+        assert(!new_name.empty());
         name = new_name;
     }
 
@@ -82,22 +85,18 @@ public:
     }
 
     void add_character (const Characters& new_character) {
-        auto find_pos = find(all_characters.begin(), all_characters.end(), new_character);
-        if (find_pos != all_characters.end()) {
-            all_characters.push_back(new_character);
-        }
-        else {cout<<"This character already in the author's list"<<endl;}
+        all_characters.push_back(new_character);
     }
-    void remove_character (const Characters& character_to_delete) {
+    /*void remove_character (const Characters& character_to_delete) {
         auto find_pos = find (all_characters.begin(), all_characters.end(), character_to_delete);
         all_characters.erase(find_pos);
-    }
+    }*/
 
     void change_pages (int new_amount) {
-        assert (new_amount > 0, "pages amount can't be lower then 0");
+        assert (new_amount > 0);
         pages = new_amount;
     }
-    void change_release_date(tm& new_date) {
+    void change_release_date(tm new_date) {
         release_date = new_date;
     }
 
@@ -111,36 +110,42 @@ public:
         anotation.close();
     }
     void clear_anotation () {
-        ofstream anotation.open(anotation_file_name, ios::trunc);
+        ofstream anotation;
+        anotation.open(anotation_file_name, ios::trunc);
         anotation.close();
     }
 
 };
 
+bool operator == (Book left, Book right) {
+    return (left.get_name() == right.get_name());
+}
+
 void save_to_file (vector<Book> books) {
-    ofstream save.open("save_file.txt", ios::ate);
+    ofstream save;
+    save.open("save_file.txt", ios::ate);
     for (auto item : books) {
-        save << name << endl;
-        for (auto item : authors) {
-            save << item << '%';
+        save << item.get_name() << endl;
+        for (auto item_author: item.get_authors()) {
+            save << item_author << '%';
         }
         save << endl;
-        save << release_date << endl;
-        save << pages << endl;
-        save << anotation_file_name << endl;
+        save << item.get_date() << endl;
+        save << item.get_page_amount() << endl;
+        save << item.get_anotation() << endl;
         save << save_to_file_ch(item.get_characters()) << endl;
     }
     save.close();
 }
 vector<Book> read_from_file () {
-    ifstream save.open("save_file.txt");
+    ifstream save;
+    save.open("save_file.txt");
     string line, element;
     vector<Book> result;
 
     int pos = 0;
-    while (!save.EOF()) {
+    while (!save.eof()) {
         result.resize(result.size()+1);
-        result[result.size()-1]();
         element = "";
         getline(save, line);
         result[result.size()-1].change_name(line);
@@ -154,7 +159,7 @@ vector<Book> read_from_file () {
         }
 
         getline(save, line);
-        result[result.size()-1].change_release_date(stotm(line))
+        result[result.size()-1].change_release_date(stotm(line));
 
         getline(save, line);
         result[result.size()-1].change_pages(stoi(line));
@@ -163,11 +168,8 @@ vector<Book> read_from_file () {
         result[result.size()-1].change_anotation(line);
 
         vector<Characters> characters;
-        do {
-            characters.resize(characters.size() + 1);
-            characters[characters.size() - 1].read_from_file(pos);
-            pos = pos + 3;
-        } while (characters[characters.size() - 1].read_from_file(pos - 3));
+        characters = read_from_file_ch(pos);
+
         for (auto item : characters) {result[result.size()-1].add_character(item);}
 
         getline(save, line);
@@ -185,23 +187,24 @@ vector<vector<Book>> series(const vector<Book>& books) {
     for (auto &item_book : books) {
         if (std::find(used.begin(), used.end(), item_book.get_name()) != used.end()) {break;}
         for (int i = 0; i < item_book.get_characters().size(); i++) {
-            if (item_book.get_characters()[i].get_types() != "episodic") {
+            auto t = std::find(item_book.get_characters()[i].get_books().begin(), item_book.get_characters()[i].get_books().end(), item_book.get_name());
+            if (*t != "episodic") {
                for (int j = 0; j < item_book.get_characters()[i].get_books().size(); j++) {
-                   if (item_book.get_characters()[i].get_types()[j] != "episodic") {
-                       row.push_back(item.get_characters()[i].get_books()[j]);
-                       used.push_back(item.get_characters()[i].get_books()[j].get_name);
+                   if (item_book.get_characters()[i].get_types()[j] != "episodic" && item_book.get_characters()[i].get_types().begin()+j != t) {
+                       row.push_back(item_book);
+                       used.push_back(item_book.get_characters()[i].get_books()[j]);
                    }
                }
                result.push_back(row);
-               row.erase();
+               row.clear();
                break;
             }
         }
     }
 
     for (auto item : result) {
-        sort(item.begin(),item.end(), [](const Book& left, const Book& right)
-                                {return left.get_date() < right.get_date();})
+        sort(item.begin(),item.end(), [&](const Book& left, const Book& right)
+                                {return left.get_date() < right.get_date();});
     }
     return result;
 }
@@ -215,16 +218,6 @@ vector<Book> search_by_name (const vector<Book>& books, const string& subname) {
         }
         return result;
     }
-}
-vector<Book> search_by_author (const vector<Book> books, const string& author) {
-    vector<Book> result;
-
-    for (auto item : books) {
-        for (auto item_authors: item.get_authors()) {
-            if (item_authors == author) {result.push_back(item);}
-        }
-    }
-    return result;
 }
 vector<Book> search_by_author (const vector<Book> books, const string& author) {
     vector<Book> result;

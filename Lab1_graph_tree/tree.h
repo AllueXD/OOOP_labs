@@ -11,16 +11,17 @@
 
 using namespace std;
 
+template<typename T>
 class TreeNode {
 private:
-    int data;
+    T data;
     vector<TreeNode*> child;
     TreeNode* parent;
 public:
-    explicit TreeNode(int f_data)
+    explicit TreeNode(T f_data)
     : data(f_data), parent(nullptr) {}
 
-    int get_data () const {
+    T get_data () const {
         return data;
     }
     TreeNode* get_child(int index) const {
@@ -42,7 +43,7 @@ public:
     void change_parent (TreeNode* new_parent) {
         parent = new_parent;
     }
-    void change_data (int new_data) {
+    void change_data (T new_data) {
         data = new_data;
     }
     int get_child_amount() const {
@@ -53,9 +54,10 @@ public:
     }
 };
 
-TreeNode* insert_by_index (int insert_value, int input_index, TreeNode* root) {
-    auto input_node = new TreeNode(insert_value);
-    queue<pair<TreeNode*, int>> q;
+template <typename T>
+TreeNode<T>* insert_by_index (T insert_value, int input_index, TreeNode<T>* root) {
+    auto input_node = new TreeNode<T>(insert_value);
+    queue<pair<TreeNode<T>*, int>> q;
     int curr_index = 0;
 
     if (root == nullptr) { return input_node;}
@@ -63,7 +65,7 @@ TreeNode* insert_by_index (int insert_value, int input_index, TreeNode* root) {
     q.push(make_pair(root, curr_index));
     curr_index++;
     while (!q.empty()) {
-        pair<TreeNode*,int> curr_node = q.front();
+        pair<TreeNode<T>*,int> curr_node = q.front();
         q.pop();
         if (curr_node.second == input_index) {
             input_node->change_parent(curr_node.first);
@@ -77,9 +79,10 @@ TreeNode* insert_by_index (int insert_value, int input_index, TreeNode* root) {
     return root;
 }
 
-void insert_by_path (int insert_value, vector<int>& path, TreeNode* root) {
-    auto input_node = new TreeNode(insert_value);
-    TreeNode* input_here = root;
+template<typename T>
+void insert_by_path (T insert_value, vector<int>& path, TreeNode<T>* root) {
+    auto input_node = new TreeNode<T>(insert_value);
+    TreeNode<T>* input_here = root;
 
     for (int i = 1; i < path.size(); i++) {
         input_here = input_here->get_child(path[i]);
@@ -89,8 +92,9 @@ void insert_by_path (int insert_value, vector<int>& path, TreeNode* root) {
     input_here->add_child(input_node);
 }
 
-void interactive_output (TreeNode* root) {
-    TreeNode* curr_node = root;
+template<typename T>
+void interactive_output (TreeNode<T>* root) {
+    TreeNode<T>* curr_node = root;
     int next;
     if (curr_node->get_parent() != nullptr) {
         cout<<"Parent: "<<(curr_node->get_parent())->get_data()<<"[0]"<<endl;
@@ -109,14 +113,16 @@ void interactive_output (TreeNode* root) {
     else {interactive_output(curr_node->get_child(next-1));}
 }
 
-void pre_output (TreeNode* root) {
+template<typename T>
+void pre_output (TreeNode<T>* root) {
     if (root != nullptr) {
         cout << root->get_data() << ' ';
         for (int i = 0; i < root->get_child_amount(); i++) { pre_output(root->get_child(i)); }
     }
 }
 
-void delete_by_value (int deleting_value, TreeNode* root) {
+template<typename T>
+void delete_by_value (T deleting_value, TreeNode<T>* root) {
     for (int i = 0; i < root->get_child_amount(); i++) {
         delete_by_value(deleting_value, root->get_child(i));
     }

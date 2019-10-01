@@ -4,42 +4,43 @@
 #include <iostream>
 #include<vector>
 #include<string>
-#include"books.h"
 #include <cassert>
 using namespace std;
+
+#include "books.h"
+
 
 class Characters {
 private:
     vector<string> names;
-    vector<Book> books;
+    vector<string> books;
     vector<string> types;
 public:
     Characters() = default;
-    Characters (vector<string> new_names, vector<Book> new_books, vector<string> new_types)
+    Characters (vector<string> new_names, vector<string> new_books, vector<string> new_types)
         :names(new_names), books(new_books), types(new_types) {
-        assert(new_names.size() == new_books.size() && new_names.size() == new_types.size(),
-                "can't create character from this vectors");
+        assert(new_names.size() == new_books.size() && new_names.size() == new_types.size());
     }
 
-    vector<string>& get_names () const {
+    vector<string> get_names () const {
         return names;
     }
-    vector<Book>& get_books () const {
+    vector<string> get_books () const {
         return books;
     }
-    vector<string>& get_types () const {
+    vector<string> get_types () const {
         return types;
     }
 
-    void add_new_role (string name, Book book, string type) {
+    void add_new_role (string name, string book, string type) {
         names.push_back(name);
         books.push_back(book);
         types.push_back(type);
     }
 
-    void remove_by_book (Book book) {
+    void remove_by_book (string book) {
         for (int i = 0; i < books.size(); i++) {
-            if (books[i].get_name() == book.get_name()) {
+            if (books[i] == book) {
                 books.erase(books.begin()+i);
                 names.erase(names.begin()+i);
                 types.erase(types.begin()+i);
@@ -65,9 +66,9 @@ public:
             }
     };
 
-    void change_book (Book change_this, Book change_to_this) {
+    void change_book (string change_this, string change_to_this) {
         for (int i = 0; i < books.size(); i++) {
-            if (books[i].get_name() == change_this.get_name()) {
+            if (books[i] == change_this) {
                 books[i] = change_to_this;
             }
         }
@@ -79,9 +80,9 @@ public:
             }
         }
     }
-    void change_type (Book change_this, string change_to_this){
+    void change_type (string change_this_book, string change_to_this){
         for (int i = 0; i < books.size(); i++) {
-            if (change_this[i].get_name() == books[i].get_name()) {
+            if (change_this_book == books[i]) {
                 types[i] = change_to_this;
             }
         }
@@ -90,18 +91,19 @@ public:
 
 
 int save_to_file_ch (vector<Characters> characters) {
-    ofstream save.open("save_file_ch.txt", ios::ate);
+    ofstream save;
+    save.open("save_file_ch.txt", ios::ate);
     for (auto item : characters) {
-        for (auto item : names) {
-            save << item << '%';
+        for (auto item_name : item.get_names()) {
+            save << item_name << '%';
         }
         save << endl;
-        for (auto item : books) {
-            save << item.get_name() << '%';
+        for (auto item_book : item.get_books()) {
+            save << item_book << '%';
         }
         save << endl;
-        for (auto item : types) {
-            save << item << '%';
+        for (auto item_type : item.get_types()) {
+            save << item_type << '%';
         }
         save << endl;
         save << "^"<<endl;
@@ -111,14 +113,14 @@ int save_to_file_ch (vector<Characters> characters) {
 }
 
 vector<Characters> read_from_file_ch (int pos) {
-    ifstream save.open("save_file_ch.txt");
+    ifstream save;
+    save.open("save_file_ch.txt");
     string line, element = "", check = "^";
     vector<Characters> result;
 
     save.seekg(pos);
     while (check != "^%") {
-        vector<string> names,types;
-        vector<Book> books;
+        vector<string> names,types,books;
         result.resize(result.size()+1);
         getline(save, line);
         for (auto item : line) {
@@ -132,7 +134,7 @@ vector<Characters> read_from_file_ch (int pos) {
         for (auto item : line) {
             if (item == '%') {
                 books.resize(books.size() + 1);
-                books[books.size() - 1].change_name(element);
+                books[books.size() - 1] = element;
                 element = "";
             } else { element += item; }
         }
@@ -144,7 +146,9 @@ vector<Characters> read_from_file_ch (int pos) {
                 element = "";
             } else { element += item; }
         }
-        result[result.size()-1].add_new_role(names, books, types);
+        for (int i = 0; i < names.size(); i++) {
+            result[result.size()-1].add_new_role(names[i], books[i], types[i]);
+        }
         names.clear(); books.clear(); types.clear();
         getline(save, check);
     }

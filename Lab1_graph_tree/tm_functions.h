@@ -6,7 +6,7 @@
 
 using namespace std;
 
-ostream& operator << (ostream& stream, tm& time) {
+ostream& operator << (ostream& stream, tm time) {
     string day="", month="", hour="", min="", sec="";
     if (time.tm_mday<10) day='0';
     if (time.tm_mon<10) month='0';
@@ -18,7 +18,7 @@ ostream& operator << (ostream& stream, tm& time) {
     return stream;
 }
 
-istream& operator >> (istream& stream, tm& time) {
+istream& operator >> (istream& stream, tm time) {
     int day, month, year, hour, min, sec;
     stream>>day>>month>>year>>hour>>min>>sec;
     time.tm_mday = day;
@@ -38,7 +38,7 @@ tm random_time () {
     return time;
 }
 
-bool operator< (tm& left, tm& right) {
+bool operator< (tm left, tm right) {
     if (left.tm_year>right.tm_year) return false;
     else if (left.tm_year<right.tm_year) return true;
 
@@ -48,7 +48,7 @@ bool operator< (tm& left, tm& right) {
     return (left.tm_mday<right.tm_mday);
 }
 
-bool operator<= (tm& left, tm& right) {
+bool operator<= (tm left, tm right) {
     if (left.tm_year>right.tm_year) return false;
     else if (left.tm_year<right.tm_year) return true;
 
@@ -58,7 +58,7 @@ bool operator<= (tm& left, tm& right) {
     return (left.tm_mday<=right.tm_mday);
 }
 
-bool operator> (tm& left, tm& right) {
+bool operator> (tm left, tm right) {
     if (left.tm_year>right.tm_year) return true;
     else if (left.tm_year<right.tm_year) return false;
 
@@ -68,7 +68,7 @@ bool operator> (tm& left, tm& right) {
     return (left.tm_mday>right.tm_mday);
 }
 
-bool operator>= (tm& left, tm& right) {
+bool operator>= (tm left, tm right) {
     if (left.tm_year>right.tm_year) return true;
     else if (left.tm_year<right.tm_year) return false;
 
@@ -78,7 +78,7 @@ bool operator>= (tm& left, tm& right) {
     return (left.tm_mday>=right.tm_mday);
 }
 
-bool operator == (tm& left, tm& right) {
+bool operator == (tm left, tm right) {
     return (left.tm_year == right.tm_year && left.tm_mon==right.tm_mon && left.tm_mday==right.tm_mday);
 }
 
