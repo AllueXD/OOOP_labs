@@ -20,7 +20,12 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    additionalFunctions.h \
+    contextMenu.h \
+    loadFunctions.h \
+    mainwindow.h \
+    menuBarFunctions.h \
+    saveFunctions.h
 
 FORMS += \
     mainwindow.ui
@@ -29,3 +34,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc

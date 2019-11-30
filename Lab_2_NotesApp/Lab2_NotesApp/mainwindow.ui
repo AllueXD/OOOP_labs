@@ -51,7 +51,7 @@
      <item>
       <widget class="QPushButton" name="archive">
        <property name="text">
-        <string>Go to archive</string>
+        <string>Show with archived</string>
        </property>
       </widget>
      </item>
@@ -113,6 +113,7 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionLoad_all"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuSort">
@@ -158,6 +159,11 @@
   <action name="actionadd_new_type">
    <property name="text">
     <string>add new type</string>
+   </property>
+  </action>
+  <action name="actionLoad_all">
+   <property name="text">
+    <string>Load all</string>
    </property>
   </action>
  </widget>
