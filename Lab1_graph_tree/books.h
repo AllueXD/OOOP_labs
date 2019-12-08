@@ -74,7 +74,7 @@ public:
 
     void add_author (const string& new_author) {
         auto find_pos = find(authors.begin(), authors.end(), new_author);
-        if (find_pos != authors.end()) {
+        if (find_pos == authors.end()) {
             authors.push_back(new_author);
         }
         else {cout<<"This author already in the author's list"<<endl;}
@@ -213,11 +213,11 @@ vector<Book> search_by_name (const vector<Book>& books, const string& subname) {
     vector<Book> result;
 
     for (auto item : books) {
-        if (search(item.get_name().begin(), item.get_name().end(), subname.begin(), subname.end()) != item.get_name().end()){
+        if (item.get_name().find(subname) != string::npos){
             result.push_back(item);
         }
-        return result;
     }
+    return result;
 }
 vector<Book> search_by_author (const vector<Book> books, const string& author) {
     vector<Book> result;
