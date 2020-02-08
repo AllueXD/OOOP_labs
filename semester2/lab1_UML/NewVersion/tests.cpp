@@ -81,9 +81,9 @@ TEST_CASE("GraphStruct", "[GraphStruct]") {
         REQUIRE(span_graph->get_connected_to_vertex(0) == std::vector<std::pair<int,int>> {{1,1}, {2,1}});
         REQUIRE(span_graph->get_connected_to_vertex(1) == std::vector<std::pair<int,int>> {{3,1}, {4,1}});
         REQUIRE(span_graph->get_connected_to_vertex(2) == std::vector<std::pair<int,int>> {{5,1}});
-        REQUIRE(span_graph->get_connected_to_vertex(3) == std::vector<std::pair<int,int>> {});
-        REQUIRE(span_graph->get_connected_to_vertex(4) == std::vector<std::pair<int,int>> {});
-        REQUIRE(span_graph->get_connected_to_vertex(5) == std::vector<std::pair<int,int>> {});
+        REQUIRE(span_graph->get_connected_to_vertex(3).empty());
+        REQUIRE(span_graph->get_connected_to_vertex(4).empty());
+        REQUIRE(span_graph->get_connected_to_vertex(5).empty());
     }
 
     SECTION("Minimal spanning tree Boruvka's algorithm") {
