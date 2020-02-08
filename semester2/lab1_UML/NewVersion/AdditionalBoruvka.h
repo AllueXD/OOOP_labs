@@ -1,7 +1,3 @@
-//
-// Created by yana4bka on 2/7/20.
-//
-
 #ifndef NEWVERSION_ADDITIONALBORUVKA_H
 #define NEWVERSION_ADDITIONALBORUVKA_H
 

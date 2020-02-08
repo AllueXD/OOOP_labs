@@ -1,16 +1,11 @@
-//
-// Created by yana4bka on 2/4/20.
-//
-
 #ifndef NEWVERSION_GRAPHSTRUCT_H
 #define NEWVERSION_GRAPHSTRUCT_H
 
 #include "Graph.h"
 #include "AdditionalBoruvka.h"
 #include <iostream>
-#include <algorithm>
-#include <random>
-#include <queue>
+#include <vector>
+#include <memory>
 
 class GraphStruct : public Graph {
     std::vector<std::vector<std::pair<int, int>>> adjacent;

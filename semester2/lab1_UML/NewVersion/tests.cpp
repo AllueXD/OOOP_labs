@@ -1,6 +1,3 @@
-//
-// Created by yana4bka on 2/7/20.
-//
 #define CATCH_CONFIG_MAIN
 #include "../Catch2/single_include/catch2/catch.hpp"
 #include "GraphMatrix.h"
@@ -8,6 +5,7 @@
 #include "GraphAlgorithms.h"
 #include <algorithm>
 #include <vector>
+#include <memory>
 
 TEST_CASE("GraphStruct", "[GraphStruct]") {
     SECTION("Creating graph") {

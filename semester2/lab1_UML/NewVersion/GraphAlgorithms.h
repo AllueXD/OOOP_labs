@@ -1,7 +1,3 @@
-//
-// Created by yana4bka on 2/7/20.
-//
-
 #ifndef NEWVERSION_GRAPHALGORITHMS_H
 #define NEWVERSION_GRAPHALGORITHMS_H
 
@@ -15,6 +11,7 @@
 #include <cassert>
 #include <memory>
 #include <type_traits>
+#include <queue>
 
 class GraphAlgorithm {
 private:

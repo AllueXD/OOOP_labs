@@ -4,9 +4,9 @@
 #include "Graph.h"
 #include "AdditionalBoruvka.h"
 #include <iostream>
-#include <algorithm>
-#include <random>
-#include <queue>
+#include <vector>
+#include <cassert>
+#include <memory>
 
 class GraphMatrix : public Graph {
     int adjacent[Graph::MAX_VERTEX_COUNT][Graph::MAX_VERTEX_COUNT];
