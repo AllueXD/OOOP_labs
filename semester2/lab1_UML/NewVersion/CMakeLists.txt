@@ -3,4 +3,4 @@ project(NewVersion)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(NewVersion main.cpp Graph.h GraphMatrix.h)
+add_executable(NewVersion Graph.h GraphMatrix.h GraphStruct.h AdditionalBoruvka.h tests.cpp GraphAlgorithms.h)
