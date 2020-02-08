@@ -11,7 +11,7 @@
 
 TEST_CASE("GraphStruct", "[GraphStruct]") {
     SECTION("Creating graph") {
-        auto graph = new GraphStruct(10);
+        auto graph = std::make_shared<GraphStruct>(10);
 
         REQUIRE(graph->get_vertex_count() == 10);
         REQUIRE(!graph->get_is_oriented());
@@ -34,23 +34,23 @@ TEST_CASE("GraphStruct", "[GraphStruct]") {
     }
 
     SECTION("Cycle check") {
-        auto graph = new GraphStruct(4);
-        REQUIRE(!GraphAlgorithm::is_cyclic(*graph));
+        auto graph = std::make_shared<GraphStruct>(4);
+        REQUIRE(!GraphAlgorithm::is_cyclic(graph));
         graph->add_connection(1,2,100);
         graph->add_connection(2,3,100);
         graph->add_connection(3,1,100);
-        REQUIRE(GraphAlgorithm::is_cyclic(*graph));
+        REQUIRE(GraphAlgorithm::is_cyclic(graph));
     }
 
     SECTION("Random graph creation") {
-        auto graph = GraphAlgorithm::create_random<GraphStruct>(3, 3, false);
-        REQUIRE(graph.is_connected(0,1));
-        REQUIRE(graph.is_connected(0,2));
-        REQUIRE(graph.is_connected(1,2));
-        REQUIRE(graph.is_connected(2,1));
+        std::shared_ptr<GraphStruct> graph = GraphAlgorithm::create_random<GraphStruct>(3, 3, false);
+        REQUIRE(graph->is_connected(0,1));
+        REQUIRE(graph->is_connected(0,2));
+        REQUIRE(graph->is_connected(1,2));
+        REQUIRE(graph->is_connected(2,1));
     }
 
-    auto graph = new GraphStruct(6, true);
+    auto graph = std::make_shared<GraphStruct>(6, true);
     graph->add_connection(0,1);
     graph->add_connection(0,2);
     graph->add_connection(1,3);
@@ -62,22 +62,22 @@ TEST_CASE("GraphStruct", "[GraphStruct]") {
 
     SECTION("Topological sort") {
         std::vector<std::vector<int>> variants = {{0,1,2,3,4,5}, {0,1,2,3,5,4}, {0,2,1,3,4,5}, {0,2,1,3,5,4}};
-        REQUIRE(std::find(variants.begin(), variants.end(), GraphAlgorithm::topological_sort(*graph)) != variants.end());
+        REQUIRE(std::find(variants.begin(), variants.end(), GraphAlgorithm::topological_sort(graph)) != variants.end());
     }
 
     SECTION("Floyds algorithm minimal distance") {
-        auto little_graph = new GraphStruct(4, true);
+        auto little_graph = std::make_shared<GraphStruct>(4, true);
         little_graph->add_connection(0,1,5);
         little_graph->add_connection(0,3,10);
         little_graph->add_connection(1,2,3);
         little_graph->add_connection(2,3,1);
-        REQUIRE (GraphAlgorithm::minimal_distances(*little_graph) == std::vector<std::vector<int>> {{0,5,8,9}, {0,0,3,4}, {0,0,0,1}, {0,0,0,0}});
-        REQUIRE(GraphAlgorithm::minimal_distances(*graph) == std::vector<std::vector<int>> {{0,1,1,2,2,2}, {0,0,0,1,1,2}, {0,0,0,1,2,1},
+        REQUIRE (GraphAlgorithm::minimal_distances(little_graph) == std::vector<std::vector<int>> {{0,5,8,9}, {0,0,3,4}, {0,0,0,1}, {0,0,0,0}});
+        REQUIRE(GraphAlgorithm::minimal_distances(graph) == std::vector<std::vector<int>> {{0,1,1,2,2,2}, {0,0,0,1,1,2}, {0,0,0,1,2,1},
                                                                        {0,0,0,0,1,1}, {0,0,0,0,0,0}, {0,0,0,0,0,0}});
     }
 
     SECTION("Spanning tree bfs") {
-        auto span_graph = GraphAlgorithm::spanning_tree_BFS<GraphStruct>(*graph);
+        auto span_graph = GraphAlgorithm::spanning_tree_BFS<GraphStruct>(graph);
         REQUIRE(span_graph->get_connected_to_vertex(0) == std::vector<std::pair<int,int>> {{1,1}, {2,1}});
         REQUIRE(span_graph->get_connected_to_vertex(1) == std::vector<std::pair<int,int>> {{3,1}, {4,1}});
         REQUIRE(span_graph->get_connected_to_vertex(2) == std::vector<std::pair<int,int>> {{5,1}});
@@ -87,7 +87,7 @@ TEST_CASE("GraphStruct", "[GraphStruct]") {
     }
 
     SECTION("Minimal spanning tree Boruvka's algorithm") {
-        graph = new GraphStruct(6, false);
+        graph = std::make_shared<GraphStruct>(6, false);
         graph->add_connection(0,1,1);
         graph->add_connection(0,3,4);
         graph->add_connection(1,2,5);
@@ -98,7 +98,7 @@ TEST_CASE("GraphStruct", "[GraphStruct]") {
         graph->add_connection(3,4,8);
         graph->add_connection(4,5,2);
 
-        auto minSpanGraph = GraphAlgorithm::minimal_spanning_tree(*graph);
+        auto minSpanGraph = GraphAlgorithm::minimal_spanning_tree(graph);
         REQUIRE(minSpanGraph->get_connected_to_vertex(0) == std::vector<std::pair<int,int>> {{1,1}, {3,4}});
         REQUIRE(minSpanGraph->get_connected_to_vertex(1) == std::vector<std::pair<int,int>> {{0,1}, {2,5}, {4,3}});
         REQUIRE(minSpanGraph->get_connected_to_vertex(2) == std::vector<std::pair<int,int>> {{1,5}});
@@ -110,7 +110,7 @@ TEST_CASE("GraphStruct", "[GraphStruct]") {
 
 TEST_CASE("GraphMatrix", "[GraphMatrix]") {
     SECTION("Creating graph") {
-        auto graph = new GraphMatrix(10);
+        auto graph = std::make_shared<GraphMatrix>(10);
 
         REQUIRE(graph->get_vertex_count() == 10);
         REQUIRE(!graph->get_is_oriented());
@@ -133,23 +133,23 @@ TEST_CASE("GraphMatrix", "[GraphMatrix]") {
     }
 
     SECTION("Cycle check") {
-        auto graph = new GraphMatrix(4);
-        REQUIRE(!GraphAlgorithm::is_cyclic(*graph));
+        auto graph =  std::make_shared<GraphMatrix>(4);
+        REQUIRE(!GraphAlgorithm::is_cyclic(graph));
         graph->add_connection(1,2,100);
         graph->add_connection(2,3,100);
         graph->add_connection(3,1,100);
-        REQUIRE(GraphAlgorithm::is_cyclic(*graph));
+        REQUIRE(GraphAlgorithm::is_cyclic(graph));
     }
 
     SECTION("Random graph creation") {
         auto graph = GraphAlgorithm::create_random<GraphMatrix>(3, 3, false);
-        REQUIRE(graph.is_connected(0,1));
-        REQUIRE(graph.is_connected(0,2));
-        REQUIRE(graph.is_connected(1,2));
-        REQUIRE(graph.is_connected(2,1));
+        REQUIRE(graph->is_connected(0,1));
+        REQUIRE(graph->is_connected(0,2));
+        REQUIRE(graph->is_connected(1,2));
+        REQUIRE(graph->is_connected(2,1));
     }
 
-    auto graph = new GraphMatrix(6, true);
+    auto graph = std::make_shared<GraphMatrix>(6, true);
     graph->add_connection(0,1);
     graph->add_connection(0,2);
     graph->add_connection(1,3);
@@ -161,22 +161,22 @@ TEST_CASE("GraphMatrix", "[GraphMatrix]") {
 
     SECTION("Topological sort") {
         std::vector<std::vector<int>> variants = {{0,1,2,3,4,5}, {0,1,2,3,5,4}, {0,2,1,3,4,5}, {0,2,1,3,5,4}};
-        REQUIRE(std::find(variants.begin(), variants.end(), GraphAlgorithm::topological_sort(*graph)) != variants.end());
+        REQUIRE(std::find(variants.begin(), variants.end(), GraphAlgorithm::topological_sort(graph)) != variants.end());
     }
 
     SECTION("Floyds algorithm minimal distance") {
-        auto little_graph = new GraphMatrix(4, true);
+        auto little_graph = std::make_shared<GraphMatrix>(4, true);
         little_graph->add_connection(0,1,5);
         little_graph->add_connection(0,3,10);
         little_graph->add_connection(1,2,3);
         little_graph->add_connection(2,3,1);
-        REQUIRE (GraphAlgorithm::minimal_distances(*little_graph) == std::vector<std::vector<int>> {{0,5,8,9}, {0,0,3,4}, {0,0,0,1}, {0,0,0,0}});
-        REQUIRE(GraphAlgorithm::minimal_distances(*graph) == std::vector<std::vector<int>> {{0,1,1,2,2,2}, {0,0,0,1,1,2}, {0,0,0,1,2,1},
+        REQUIRE (GraphAlgorithm::minimal_distances(little_graph) == std::vector<std::vector<int>> {{0,5,8,9}, {0,0,3,4}, {0,0,0,1}, {0,0,0,0}});
+        REQUIRE(GraphAlgorithm::minimal_distances(graph) == std::vector<std::vector<int>> {{0,1,1,2,2,2}, {0,0,0,1,1,2}, {0,0,0,1,2,1},
                                                                                             {0,0,0,0,1,1}, {0,0,0,0,0,0}, {0,0,0,0,0,0}});
     }
 
     SECTION("Spanning tree bfs") {
-        auto span_graph = GraphAlgorithm::spanning_tree_BFS<GraphMatrix>(*graph);
+        auto span_graph = GraphAlgorithm::spanning_tree_BFS<GraphMatrix>(graph);
         REQUIRE(span_graph->weight_of_connection(0,1) == 1);
         REQUIRE(span_graph->weight_of_connection(0,2) == 1);
         REQUIRE(span_graph->weight_of_connection(1,3) == 1);
@@ -186,7 +186,7 @@ TEST_CASE("GraphMatrix", "[GraphMatrix]") {
     }
 
     SECTION("Minimal spanning tree Boruvka's algorithm") {
-        graph = new GraphMatrix(6, false);
+        graph = std::make_shared<GraphMatrix>(6, false);
         graph->add_connection(0,1,1);
         graph->add_connection(0,3,4);
         graph->add_connection(1,2,5);
@@ -197,7 +197,7 @@ TEST_CASE("GraphMatrix", "[GraphMatrix]") {
         graph->add_connection(3,4,8);
         graph->add_connection(4,5,2);
 
-        auto minSpanGraph = GraphAlgorithm::minimal_spanning_tree(*graph);
+        auto minSpanGraph = GraphAlgorithm::minimal_spanning_tree(graph);
         REQUIRE(minSpanGraph->weight_of_connection(0,1) == 1);
         REQUIRE(minSpanGraph->weight_of_connection(0,3) == 4);
         REQUIRE(minSpanGraph->weight_of_connection(1,0) == 1);

@@ -40,11 +40,11 @@ protected:
         result.push_back(vertex);
     }
 
-    inline void spanning_tree_step (GraphMatrix& result, int curr_vertex,
+    inline void spanning_tree_step (std::shared_ptr<GraphMatrix>& result, int curr_vertex,
             std::vector<bool>& already_connected, std::vector<std::pair<int,int>>& edges_weight) const {
         for (int i = 0; i < vertex_count; i++) {
             if (this->is_connected(curr_vertex,i) && !already_connected[i]) {
-                result.add_connection(curr_vertex, i, this->weight_of_connection(curr_vertex,i));
+                result->add_connection(curr_vertex, i, this->weight_of_connection(curr_vertex,i));
                 already_connected[i] = true;
             }
         }
