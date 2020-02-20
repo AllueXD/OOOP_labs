@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI timestamp="2020-01-31T17:55:36" xmlns:UML="http://schema.omg.org/spec/UML/1.4" verified="false" xmi.version="1.2">
+ <XMI.header>
+  <XMI.documentation>
+   <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
+   <XMI.exporterVersion>1.6.13</XMI.exporterVersion>
+   <XMI.exporterEncoding>UnicodeUTF8</XMI.exporterEncoding>
+  </XMI.documentation>
+  <XMI.metamodel xmi.name="UML" href="UML.xml" xmi.version="1.4"/>
+ </XMI.header>
+ <XMI.content>
+  <UML:Model isLeaf="false" isSpecification="false" name="UML Model" isRoot="false" xmi.id="m1" isAbstract="false">
+   <UML:Namespace.ownedElement>
+    <UML:Stereotype isLeaf="false" visibility="public" isSpecification="false" name="folder" namespace="m1" isRoot="false" xmi.id="folder" isAbstract="false"/>
+    <UML:Model isLeaf="false" visibility="public" isSpecification="false" name="Logical View" namespace="m1" isRoot="false" xmi.id="Logical_View" isAbstract="false">
+     <UML:Namespace.ownedElement>
+      <UML:Package isLeaf="false" visibility="public" isSpecification="false" stereotype="folder" name="Datatypes" namespace="Logical_View" isRoot="false" xmi.id="Datatypes" isAbstract="false">
+       <UML:Namespace.ownedElement>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="char" namespace="Datatypes" isRoot="false" xmi.id="uk2bsyfEBNxU5" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="int" namespace="Datatypes" isRoot="false" xmi.id="uJdfhaKOKhrUb" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="float" namespace="Datatypes" isRoot="false" xmi.id="uTot19MMTI4VQ" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="double" namespace="Datatypes" isRoot="false" xmi.id="uE4o4GDL74UjU" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="bool" namespace="Datatypes" isRoot="false" xmi.id="uurgpELFnFQwC" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="string" namespace="Datatypes" isRoot="false" xmi.id="urKFcYX7TxIeK" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="unsigned char" namespace="Datatypes" isRoot="false" xmi.id="utlbCtM8xubLm" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="signed char" namespace="Datatypes" isRoot="false" xmi.id="uqmAa8mxRemum" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="unsigned int" namespace="Datatypes" isRoot="false" xmi.id="uJ3b5nijSV9zC" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="signed int" namespace="Datatypes" isRoot="false" xmi.id="uZnw1zi3yOgX7" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="short int" namespace="Datatypes" isRoot="false" xmi.id="u2kM64KHBizX9" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="unsigned short int" namespace="Datatypes" isRoot="false" xmi.id="u5kKT7il2MZrv" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="signed short int" namespace="Datatypes" isRoot="false" xmi.id="ufbKW9MwYzT87" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="long int" namespace="Datatypes" isRoot="false" xmi.id="upRmlJimvlS3l" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="signed long int" namespace="Datatypes" isRoot="false" xmi.id="u4JLW8ztMnrxq" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="unsigned long int" namespace="Datatypes" isRoot="false" xmi.id="uksK4gyPGwE5J" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="long double" namespace="Datatypes" isRoot="false" xmi.id="uzE5mnLtcS5Ua" isAbstract="false"/>
+        <UML:DataType isLeaf="false" visibility="public" isSpecification="false" name="wchar_t" namespace="Datatypes" isRoot="false" xmi.id="uoAQlFRm8Ce57" isAbstract="false"/>
+        <UML:DataType isLeaf="false" elementReference="u7E1pc3sknhvF" visibility="public" isSpecification="false" name="array&lt;int>" namespace="Datatypes" isRoot="false" xmi.id="ult0108X55aOL" isAbstract="false"/>
+        <UML:DataType isLeaf="false" elementReference="uL7r4gTjueOeg" visibility="public" isSpecification="false" name="vector&lt;vector&lt;pair&lt;int,int>>>" namespace="Datatypes" isRoot="false" xmi.id="uE4M6zUNiRuq8" isAbstract="false"/>
+        <UML:DataType isLeaf="false" elementReference="uL7r4gTjueOeg" visibility="public" isSpecification="false" name="vector&lt;int>" namespace="Datatypes" isRoot="false" xmi.id="uB4tfno1VXcIY" isAbstract="false"/>
+       </UML:Namespace.ownedElement>
+      </UML:Package>
+      <UML:Class isLeaf="false" visibility="public" isSpecification="false" name="graph_matrix" namespace="Logical_View" isRoot="false" xmi.id="ulGX0ODY66ZDG" isAbstract="false">
+       <UML:Classifier.feature>
+        <UML:Attribute visibility="public" isSpecification="false" name="adjacent" xmi.id="usc4BOiZzefRC" type="ult0108X55aOL"/>
+        <UML:Attribute visibility="public" isSpecification="false" name="vertex_count" xmi.id="u4GYo2dO65h7Y" type="uJdfhaKOKhrUb"/>
+        <UML:Attribute visibility="public" isSpecification="false" name="is_oriented" xmi.id="uNAmI0Demf21z" type="uurgpELFnFQwC" initialValue="false"/>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class isLeaf="false" visibility="public" isSpecification="false" name="array" namespace="Logical_View" isRoot="false" xmi.id="u7E1pc3sknhvF" isAbstract="false"/>
+      <UML:Class isLeaf="false" visibility="public" isSpecification="false" name="graph_struct" namespace="Logical_View" isRoot="false" xmi.id="uqQYkq9j2VvDW" isAbstract="false">
+       <UML:Classifier.feature>
+        <UML:Attribute visibility="public" isSpecification="false" name="adjacent" xmi.id="uBpie4Iz4cEws" type="uE4M6zUNiRuq8"/>
+        <UML:Attribute visibility="public" isSpecification="false" name="vertex_count" xmi.id="uSekv0SYhM0qr" type="uJdfhaKOKhrUb"/>
+        <UML:Attribute visibility="public" isSpecification="false" name="is_oriented" xmi.id="utofIjJudnCPt" type="uurgpELFnFQwC" initialValue="false"/>
+       </UML:Classifier.feature>
+      </UML:Class>
+      <UML:Class isLeaf="false" visibility="public" isSpecification="false" name="vector" namespace="Logical_View" isRoot="false" xmi.id="uL7r4gTjueOeg" isAbstract="false"/>
+      <UML:Dependency client="uqQYkq9j2VvDW" visibility="public" isSpecification="false" name="" supplier="uL7r4gTjueOeg" namespace="Logical_View" xmi.id="uxc9UK6y6zEZ0"/>
+      <UML:Dependency client="uqQYkq9j2VvDW" visibility="public" isSpecification="false" name="" supplier="uxc9UK6y6zEZ0" namespace="Logical_View" xmi.id="uI4ZkZaXGY72Z"/>
+      <UML:Package isLeaf="false" visibility="public" isSpecification="false" name="main functions for graph" namespace="Logical_View" isRoot="false" xmi.id="udWWWFqyWWJR6" isAbstract="false">
+       <UML:Namespace.ownedElement/>
+      </UML:Package>
+      <UML:Class isLeaf="false" visibility="public" isSpecification="false" name="boruvka_subset" namespace="Logical_View" isRoot="false" xmi.id="uRZl5pEpiYFvY" isAbstract="false">
+       <UML:Classifier.feature>
+        <UML:Attribute visibility="public" isSpecification="false" name="vertexes" xmi.id="uBGVXVK0yyZBt" type="uB4tfno1VXcIY"/>
+       </UML:Classifier.feature>
+      </UML:Class>
+     </UML:Namespace.ownedElement>
+     <XMI.extension xmi.extender="umbrello">
+      <diagrams resolution="96">
+       <diagram showatts="1" snapx="25" canvasheight="1515.51" showattribassocs="1" font="Ubuntu,11,-1,5,50,0,0,0,0,0" type="1" snapy="25" showops="1" showstereotype="1" isopen="1" documentation="" griddotcolor="#d3d3d3" snapcsgrid="0" canvaswidth="2672" showopsig="1" textcolor="#000000" name="class diagram" linecolor="#ff0000" linewidth="0" backgroundcolor="#ffffff" showpubliconly="0" showpackage="1" zoom="53.50250105473708" xmi.id="ucqM6br9WaeEu" showgrid="0" showscope="1" showattsig="1" fillcolor="#ffff00" snapgrid="0" localid="-1" usefillcolor="1">
+        <widgets>
+         <classwidget usesdiagramusefillcolor="0" y="-513.995" usesdiagramfillcolor="0" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showattributes="1" showstereotype="1" autoresize="1" isinstance="0" showopsigs="601" textcolor="#000000" x="-891.547" linecolor="#ff0000" linewidth="0" height="42" width="170" showpubliconly="0" showpackage="1" showoperations="1" showattsigs="601" xmi.id="uRZl5pEpiYFvY" showscope="1" fillcolor="#ffff00" localid="uMyTLq4mqM14A" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-362.503" text="vector&lt;int> Floyd_matr_all_for_one" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1424.58" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="251" xmi.id="uHYH0Ozilsbtr" fillcolor="#ffff00" localid="uC2SD4GzdORHl" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-480.159" text="bool is_cyclic_struct_rec" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-510.031" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="172" xmi.id="u4jYQZtoydhQr" fillcolor="#ffff00" localid="uv0ET8vyz1Gve" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-126.597" text="int weight_of_matr_graph" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1415.31" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="186" xmi.id="ubOhfCoHPDYMz" fillcolor="#ffff00" localid="uQjdtooKM7X2t" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-398.112" text="void union_subsets" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-878.464" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="138" xmi.id="u8JsSbkMTJRrb" fillcolor="#ffff00" localid="uJ7HO8Mkyq2bN" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-246.482" text="vector&lt;int> topological_sort_matr" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1410.24" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="241" xmi.id="ubfKhJM6iolHg" fillcolor="#ffff00" localid="uscGFqLBMB7LS" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-674.735" text="Functions for struct graph" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-454.184" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="184" xmi.id="uT3quOSUzlnpV" fillcolor="#ffff00" localid="uqg46R1t7vYel" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-636.431" text="main functionds for struct graph" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-465.926" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="228" xmi.id="uG066E6sICxaH" fillcolor="#ffff00" localid="upXoKbx9M7JmI" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-344.386" text="int Floyd_struct_between_two" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-525.441" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="216" xmi.id="uei8ER0th7WOV" fillcolor="#ffff00" localid="uPqCXh5JqIwe0" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-126.16" text="int weight_of_struct_graph" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-517.641" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="193" xmi.id="ubOhfCoHPDYMz" fillcolor="#ffff00" localid="u4aw4n3tCYpjB" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-379.069" text="vector&lt;vector&lt;int>> Floyd_struct" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-526.221" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="234" xmi.id="uVSeij8rlUt4N" fillcolor="#ffff00" localid="uIeYtmPWdjh1a" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-184.705" text="Spanning tree" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1316.63" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="103" xmi.id="uuxHQvTHdh3qY" fillcolor="#ffff00" localid="uuJ5kamodd50F" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-143.624" text="graph_matrix* boruvka_matr" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1414.71" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="205" xmi.id="un8fJA1DWDHL5" fillcolor="#ffff00" localid="usRBwQY2AtT7l" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="uLxgk8txjoYFY" usefillcolor="1" autoresize="0" height="95.5462" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-514.801" width="344.499" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-533.291" xmi.id="uOODkrr6SPwDu" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-292.215" text="topological sort" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1330.74" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="115" xmi.id="uuE3ACSkq3LdI" fillcolor="#ffff00" localid="ud3tJ09gvOSNj" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="uSnQ20TBYkJ9I" usefillcolor="1" autoresize="0" height="89.8501" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-294.325" width="303.333" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-1421.5" xmi.id="uj6oAhtJvcIge" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-143.189" text="graph_matrix* boruvka_struct" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-517.031" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="212" xmi.id="un8fJA1DWDHL5" fillcolor="#ffff00" localid="uHR9EGcKKo7hd" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-160.931" text="graph_matrix* bfs_matr_for_span" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1414.61" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="238" xmi.id="u796Bn3Oofw4c" fillcolor="#ffff00" localid="uVOFZsKExsPwP" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-267.175" text="void dfs_for_topological_matr" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1403.03" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="213" xmi.id="uB3x4vr1gp5bf" fillcolor="#ffff00" localid="uTtkdZiLQZk3l" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-263.636" text="void dfs_for_topological_struct" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-511.161" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="221" xmi.id="uB3x4vr1gp5bf" fillcolor="#ffff00" localid="u0El7bn4d9bqt" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-574.41" text="graph_matrix* create_random_matrg" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1403.17" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="262" xmi.id="uqACHyZY5QCaJ" fillcolor="#ffff00" localid="ueo7yHX7FXqmT" usefillcolor="1"/>
+         <classwidget usesdiagramusefillcolor="0" y="-859.264" usesdiagramfillcolor="0" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showattributes="1" showstereotype="1" autoresize="0" isinstance="0" showopsigs="601" textcolor="#000000" x="-1259.58" linecolor="#ff0000" linewidth="0" height="137" width="251" showpubliconly="0" showpackage="1" showoperations="1" showattsigs="601" xmi.id="ulGX0ODY66ZDG" showscope="1" fillcolor="#ffff00" localid="uheYLJi9whXOY" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-592.974" text="void output_struct_graph" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-502.501" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="182" xmi.id="uMMJTuImos4zu" fillcolor="#ffff00" localid="uK0VPHiGuE2yL" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="uQen3uzXQwgn3" usefillcolor="1" autoresize="0" height="96.9594" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-402.849" width="347.325" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-1434.56" xmi.id="uJ56cJrby43FI" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-603.71" text="Mutual functions" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-869.118" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="124" xmi.id="usG1k3R4iewAV" fillcolor="#ffff00" localid="ufwQmryqfjbIg" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="u3qYnfbRmxsOS" usefillcolor="1" autoresize="0" height="89.8501" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-293.89" width="303.333" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-523.831" xmi.id="uj6oAhtJvcIge" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-545.769" text="bool compare_weight" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-882.202" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="156" xmi.id="uBwzDDWAslZF7" fillcolor="#ffff00" localid="ubUMj0MWXiA2k" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="uHREtCqlsLxYg" usefillcolor="1" autoresize="0" height="98.6096" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-192.225" width="362.395" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-530.661" xmi.id="uwOYN4lVKe20H" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-614.727" text="void add_to_matr" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1400.03" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="128" xmi.id="uKDdjNcP0k1gD" fillcolor="#ffff00" localid="uqIwBz3QulZ1M" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="uTQtpxi7yHpju" usefillcolor="1" autoresize="0" height="96.9594" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-402.413" width="347.325" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-536.881" xmi.id="uJ56cJrby43FI" usesdiagramusefillcolor="0"/>
+         <classwidget usesdiagramusefillcolor="0" y="-862.768" usesdiagramfillcolor="0" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showattributes="1" showstereotype="1" autoresize="0" isinstance="0" showopsigs="601" textcolor="#000000" x="-616.03" linecolor="#ff0000" linewidth="0" height="136" width="242" showpubliconly="0" showpackage="1" showoperations="1" showattsigs="601" xmi.id="uqQYkq9j2VvDW" showscope="1" fillcolor="#ffff00" localid="uQovpF2C2ErYc" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-379.505" text="vector&lt;vector&lt;int>> Floyd_matr" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1423.89" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="227" xmi.id="uVSeij8rlUt4N" fillcolor="#ffff00" localid="uRJWnFEks0Kfx" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-400.032" text="Floyd's algorithm" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1333.86" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="125" xmi.id="u5w6vfpajLih9" fillcolor="#ffff00" localid="uuaxjeXTRSS9g" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="uED7b8EO2aYYI" usefillcolor="1" autoresize="0" height="644.46" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-684.08" width="389.706" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-1442.92" xmi.id="uxWOvUKZo8Hag" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-512.36" text="checking" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1333.04" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="68" xmi.id="umGrUg9Nm83nK" fillcolor="#ffff00" localid="ubAyRN75DLaVA" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-344.821" text="int Floyd_matr_between_two" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1423.12" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="208" xmi.id="uei8ER0th7WOV" fillcolor="#ffff00" localid="ubqyoEk61HoPS" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="uvaiwqonWQURg" usefillcolor="1" autoresize="0" height="98.6096" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-192.661" width="362.395" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-1428.34" xmi.id="uwOYN4lVKe20H" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-444.839" text="pair&lt;int,int> lowest_in_subset " usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-910.238" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="217" xmi.id="uFh6QZXYFnNFd" fillcolor="#ffff00" localid="uI4GEpbmnudGt" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="u6QUifv9Coktp" usefillcolor="1" autoresize="0" height="640.721" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-684.08" width="419.611" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-556.983" xmi.id="uZgrm0jz2x6qs" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-593.41" text="void output_matrix_graph" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1400.17" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="186" xmi.id="uMMJTuImos4zu" fillcolor="#ffff00" localid="u4nfmwd89jGUy" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-457.982" text="bool is_cyclic_matr" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1406.29" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="136" xmi.id="uMLUqkumPciKX" fillcolor="#ffff00" localid="uhfCSVCMKkSon" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="urGOSVwcK1Ir4" usefillcolor="1" autoresize="0" height="98" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-635.974" width="345" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-533.501" xmi.id="uUVSPKNKjLe10" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-291.779" text="topological sort" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-433.067" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="115" xmi.id="uuE3ACSkq3LdI" fillcolor="#ffff00" localid="uuT1CXgcH73Wi" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-246.047" text="vector&lt;int> topological_sort_struct" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-512.571" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="249" xmi.id="ubfKhJM6iolHg" fillcolor="#ffff00" localid="uzdmSmVC96710" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="uxdHQLgDA7MEp" usefillcolor="1" autoresize="0" height="235.133" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-605.579" width="294.383" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-956.965" xmi.id="uMYtxvqWa6xat" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-480.595" text="bool is_cyclic_matr_rec" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1407.7" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="165" xmi.id="u4jYQZtoydhQr" fillcolor="#ffff00" localid="ublBPOAF8bQLz" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-184.269" text="Spanning tree" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-418.959" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="103" xmi.id="uuxHQvTHdh3qY" fillcolor="#ffff00" localid="u8L3IRNKXdEzS" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-362.067" text="vector&lt;int> Floyd_struct_all_for_one" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-526.911" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="259" xmi.id="uHYH0Ozilsbtr" fillcolor="#ffff00" localid="u549Sqis21PUD" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-160.496" text="graph_matrix* bfs_struct_for_span" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-516.941" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="246" xmi.id="u796Bn3Oofw4c" fillcolor="#ffff00" localid="uA9zedgYEp5Jk" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-457.547" text="bool is_cyclic_str" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-508.611" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="122" xmi.id="uMLUqkumPciKX" fillcolor="#ffff00" localid="uxZg4uEdGpMbY" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-573.974" text="graph_struct* create_random_structg" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-505.501" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="265" xmi.id="uqACHyZY5QCaJ" fillcolor="#ffff00" localid="uDFBe2cknoKyi" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-672.866" text="Functions for matrix graph" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1353.21" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="188" xmi.id="uVkSvsC0Dsgky" fillcolor="#ffff00" localid="uNmIX3yXKzoKJ" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-511.924" text="checking" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-435.362" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="68" xmi.id="umGrUg9Nm83nK" fillcolor="#ffff00" localid="u5yhS4VD2Q6kF" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-399.596" text="Floyd's algorithm" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-436.188" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="125" xmi.id="u5w6vfpajLih9" fillcolor="#ffff00" localid="uRaRWQTG91Olh" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-614.292" text="void add_to_struct" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-502.351" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="135" xmi.id="uKDdjNcP0k1gD" fillcolor="#ffff00" localid="uu3XxAKuIV31j" usefillcolor="1"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-629.493" text="main functionds for matrix graph" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-1362.37" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="232" xmi.id="uG066E6sICxaH" fillcolor="#ffff00" localid="uNh5RoTbQ7yef" usefillcolor="1"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="uKydQCyBXvKsm" usefillcolor="1" autoresize="0" height="98" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-636.41" width="345" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-1431.17" xmi.id="uUVSPKNKjLe10" usesdiagramusefillcolor="0"/>
+         <boxwidget textcolor="#000000" usesdiagramfillcolor="0" localid="ueoHk06JUMs5a" usefillcolor="1" autoresize="0" height="95.5462" showstereotype="1" linecolor="#000000" font="Ubuntu,11,-1,5,50,0,0,0,0,0" y="-515.236" width="344.499" linewidth="0" fillcolor="#ffff00" isinstance="0" x="-1430.97" xmi.id="uOODkrr6SPwDu" usesdiagramusefillcolor="0"/>
+         <floatingtext usesdiagramusefillcolor="0" y="-420.541" text="int find_subset_by_vert" usesdiagramfillcolor="0" posttext="" font="Ubuntu,11,-1,5,50,0,0,0,0,0" showstereotype="1" autoresize="1" isinstance="0" textcolor="#000000" x="-889.678" linecolor="#ff0000" linewidth="0" pretext="" role="700" height="21" width="168" xmi.id="ujEIh1mdvcX9h" fillcolor="#ffff00" localid="uKn4xMMhUk7do" usefillcolor="1"/>
+        </widgets>
+        <messages/>
+        <associations/>
+       </diagram>
+      </diagrams>
+     </XMI.extension>
+    </UML:Model>
+    <UML:Model isLeaf="false" visibility="public" isSpecification="false" name="Use Case View" namespace="m1" isRoot="false" xmi.id="Use_Case_View" isAbstract="false">
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+    <UML:Model isLeaf="false" visibility="public" isSpecification="false" name="Component View" namespace="m1" isRoot="false" xmi.id="Component_View" isAbstract="false">
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+    <UML:Model isLeaf="false" visibility="public" isSpecification="false" name="Deployment View" namespace="m1" isRoot="false" xmi.id="Deployment_View" isAbstract="false">
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+    <UML:Model isLeaf="false" visibility="public" isSpecification="false" name="Entity Relationship Model" namespace="m1" isRoot="false" xmi.id="Entity_Relationship_Model" isAbstract="false">
+     <UML:Namespace.ownedElement/>
+    </UML:Model>
+   </UML:Namespace.ownedElement>
+  </UML:Model>
+ </XMI.content>
+ <XMI.extensions xmi.extender="umbrello">
+  <docsettings uniqueid="uT3quOSUzlnpV" viewid="ucqM6br9WaeEu" documentation=""/>
+  <listview>
+   <listitem open="1" id="Views" type="800">
+    <listitem open="1" id="Component_View" type="821"/>
+    <listitem open="1" id="Deployment_View" type="827"/>
+    <listitem open="1" id="Entity_Relationship_Model" type="836"/>
+    <listitem open="1" id="Logical_View" type="801">
+     <listitem open="1" id="u7E1pc3sknhvF" type="813"/>
+     <listitem open="1" id="uRZl5pEpiYFvY" type="813">
+      <listitem open="0" id="uBGVXVK0yyZBt" type="814"/>
+     </listitem>
+     <listitem open="0" label="class diagram" id="ucqM6br9WaeEu" type="807"/>
+     <listitem open="1" id="Datatypes" type="830">
+      <listitem open="1" id="ult0108X55aOL" type="829"/>
+      <listitem open="1" id="uurgpELFnFQwC" type="829"/>
+      <listitem open="1" id="uk2bsyfEBNxU5" type="829"/>
+      <listitem open="1" id="uE4o4GDL74UjU" type="829"/>
+      <listitem open="1" id="uTot19MMTI4VQ" type="829"/>
+      <listitem open="1" id="uJdfhaKOKhrUb" type="829"/>
+      <listitem open="1" id="uzE5mnLtcS5Ua" type="829"/>
+      <listitem open="1" id="upRmlJimvlS3l" type="829"/>
+      <listitem open="1" id="u2kM64KHBizX9" type="829"/>
+      <listitem open="1" id="uqmAa8mxRemum" type="829"/>
+      <listitem open="1" id="uZnw1zi3yOgX7" type="829"/>
+      <listitem open="1" id="u4JLW8ztMnrxq" type="829"/>
+      <listitem open="1" id="ufbKW9MwYzT87" type="829"/>
+      <listitem open="1" id="urKFcYX7TxIeK" type="829"/>
+      <listitem open="1" id="utlbCtM8xubLm" type="829"/>
+      <listitem open="1" id="uJ3b5nijSV9zC" type="829"/>
+      <listitem open="1" id="uksK4gyPGwE5J" type="829"/>
+      <listitem open="1" id="u5kKT7il2MZrv" type="829"/>
+      <listitem open="1" id="uB4tfno1VXcIY" type="829"/>
+      <listitem open="1" id="uE4M6zUNiRuq8" type="829"/>
+      <listitem open="1" id="uoAQlFRm8Ce57" type="829"/>
+     </listitem>
+     <listitem open="1" id="ulGX0ODY66ZDG" type="813">
+      <listitem open="0" id="usc4BOiZzefRC" type="814"/>
+      <listitem open="0" id="uNAmI0Demf21z" type="814"/>
+      <listitem open="0" id="u4GYo2dO65h7Y" type="814"/>
+     </listitem>
+     <listitem open="1" id="uqQYkq9j2VvDW" type="813">
+      <listitem open="0" id="uBpie4Iz4cEws" type="814"/>
+      <listitem open="0" id="utofIjJudnCPt" type="814"/>
+      <listitem open="0" id="uSekv0SYhM0qr" type="814"/>
+     </listitem>
+     <listitem open="1" id="udWWWFqyWWJR6" type="818"/>
+     <listitem open="1" id="uL7r4gTjueOeg" type="813"/>
+    </listitem>
+    <listitem open="1" id="Use_Case_View" type="802"/>
+   </listitem>
+  </listview>
+  <codegeneration>
+   <codegenerator language="C++"/>
+  </codegeneration>
+ </XMI.extensions>
+</XMI>
