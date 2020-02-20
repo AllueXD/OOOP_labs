@@ -40,6 +40,16 @@ protected:
         result.push_back(vertex);
     }
 
+    /**
+     * @brief step for creating spanning tree
+     *
+     * Uses different type of bypass than GraphStruct
+     *
+     * @param result result spanning tree
+     * @param curr_vertex current vertex that we are checking
+     * @param already_connected array that shows which vertices already connected to current
+     * @param edges_weight vector with weight of connection from current vertex to any other
+     */
     inline void spanning_tree_step (std::shared_ptr<GraphMatrix>& result, int curr_vertex,
             std::vector<bool>& already_connected, std::vector<std::pair<int,int>>& edges_weight) const {
         for (int i = 0; i < vertex_count; i++) {
@@ -56,6 +66,17 @@ protected:
         }
     }
 
+    /**
+     * @brief step for creating minimal spanning tree
+     *
+     * Defines vertex that has minimal distance to current.
+     * Uses different type of bypass than GraphStruct.
+     *
+     * @param vert current vertex for which we are searching minimal distance
+     * @param amount_of_component current amount of subsets
+     * @param subsets current available subsets
+     * @param lowest vector of all minimal distances between vertices
+     */
     inline void min_spanning_tree_step (int vert, int amount_of_component,
             std::vector<boruvka_subset>& subsets, std::vector<std::pair<int, int>>& lowest) const {
 
@@ -79,7 +100,7 @@ public:
         }
     }
 
-    void change_oriented(bool oriented) {
+    void change_oriented(bool oriented) override {
         if (oriented == is_oriented) {return;}
         else {
             if (!oriented) {

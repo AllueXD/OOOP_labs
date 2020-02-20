@@ -39,6 +39,16 @@ protected:
         result.push_back(vertex);
     }
 
+    /**
+     * @brief step for creating spanning tree
+     *
+     * Uses different type of bypass than GraphMatrix
+     *
+     * @param result result spanning tree
+     * @param curr_vertex current vertex that we are checking
+     * @param already_connected array that shows which vertices already connected to current
+     * @param edges_weight vector with weight of connection from current vertex to any other
+     */
     inline void spanning_tree_step (std::shared_ptr<GraphStruct>& result, int curr_vertex,
             std::vector<bool>& already_connected, std::vector<std::pair<int,int>>& edges_weight) const {
 
@@ -56,6 +66,17 @@ protected:
         }
     }
 
+    /**
+     * @brief step for creating minimal spanning tree
+     *
+     * Defines vertex that has minimal distance to current.
+     * Uses different type of bypass than GraphMatrix.
+     *
+     * @param vert current vertex for which we are searching minimal distance
+     * @param amount_of_component current amount of subsets
+     * @param subsets current available subsets
+     * @param lowest vector of all minimal distances between vertices
+     */
     inline void min_spanning_tree_step (int vert, int amount_of_component,
             std::vector<boruvka_subset>& subsets, std::vector<std::pair<int, int>>& lowest) const {
 
@@ -76,7 +97,7 @@ public:
         adjacent.resize(_vertex_count);
     }
 
-    void change_oriented(bool oriented) {
+    void change_oriented(bool oriented) override {
         if (oriented == is_oriented) {return;}
         else {
             if (!oriented) {
@@ -90,6 +111,11 @@ public:
         }
     }
 
+    /**
+     * @brief Getter for connected vertices to vertex specified by index
+     * @param index index of vertex to which we want get connected to
+     * @return vector of connected vertices to specified one and weight of every connection
+     */
     std::vector<std::pair<int,int>> get_connected_to_vertex(int index) const {
         assert(index < vertex_count);
         return adjacent[index];

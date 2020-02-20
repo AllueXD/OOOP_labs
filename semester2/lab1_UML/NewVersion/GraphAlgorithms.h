@@ -13,8 +13,23 @@
 #include <type_traits>
 #include <queue>
 
+/**
+ * @brief friend class for GraphMatrix and GraphStruct where implemented all algorithms for graphs
+ *
+ * In this class implemented common part for both type of graph representation.
+ * And this algorithms use method steps from GraphMatrix and GraphStruct that should be different in implementation.
+ *
+ */
 class GraphAlgorithm {
 private:
+    /**
+     * @brief Making random connections in graph
+     *
+     * @param graph graph in which we adding connection
+     * @param _vertex_count amount of vertices in graph
+     * @param edge_count amount of new connection that should be added
+     * @param is_weighed shows if connection should have weight
+     */
     static void random_graph_connection (const std::shared_ptr<Graph>& graph, int _vertex_count, int edge_count, bool is_weighed = false) {
         int vert1, vert2, weight = 1;
         std::random_device rd;
@@ -37,6 +52,17 @@ private:
     }
 
 public:
+
+    /**
+     * @brief Creating random graph with specified parameters and with specified GraphType
+     *
+     * @param _vertex_count amount of vertices in new graph
+     * @param edge_count amount of connections between vertices in new graph
+     * @param _is_oriented orientation of new graph
+     * @param is_weighed shows if new graph should be weighed
+     *
+     * @return graph of specified type
+     */
     template <typename GraphType>
     static auto create_random (int _vertex_count, int edge_count, bool _is_oriented = false, bool is_weighed = false) {
         static_assert(std::is_same<GraphType, GraphMatrix>() || std::is_same<GraphType, GraphStruct>(),
@@ -52,6 +78,11 @@ public:
         return graph;
     }
 
+    /**
+     * @brief Shows if graph cyclic
+     *
+     * @return true if graph cyclic and false if acyclic
+     */
     static bool is_cyclic (const std::shared_ptr<Graph>& graph)  {
         bool visited[Graph::get_max_vert_count()];
         bool stack[Graph::get_max_vert_count()];
@@ -67,6 +98,13 @@ public:
         return false;
     }
 
+    /**
+    * @brief Making topological sort of graph's vertices
+    *
+    * Sort all vertices in order of connection without repeating them
+    *
+    * @return vector with sorted vertices of graph
+    */
     static std::vector<int> topological_sort(const std::shared_ptr<Graph>& graph) {
         std::vector<bool> visited;
         std::vector<int> result;
@@ -85,6 +123,11 @@ public:
         return result;
     }
 
+    /**
+     * @brief Finding minimal distance to all vertices
+     *
+     * @return matrix where between every two vertices indicated minimal distance
+     */
     static std::vector<std::vector<int>> minimal_distances(const std::shared_ptr<Graph>& graph) {
         std::vector<std::vector<int>> distance;
 
@@ -123,6 +166,13 @@ public:
         return distance;
     }
 
+    /**
+     * @brief Finding minimal distance from specified vertex to all other vertices
+     *
+     * @param vertex vertex for which we searching all minimal vertices
+     *
+     * @return vector where indicated all minimal distance for specified vertex
+     */
     static std::vector<int> minimal_vertex_distances (const std::shared_ptr<Graph>& graph, int vertex)  {
         std::vector<std::vector<int>> distance;
         std::vector<int> result;
@@ -133,11 +183,24 @@ public:
         return result;
     }
 
+    /**
+     * @brief Finding minimal distance for two specified vertices
+     *
+     * @return minimal distance between specified two vertices
+     */
     static int minimal_two_vertex_distance(const std::shared_ptr<Graph>& graph, int first_vertex, int second_vertex)  {
         std::vector<std::vector<int>> distance = minimal_distances(graph);
         return (distance[first_vertex][second_vertex]);
     }
 
+    /**
+     * @brief Creating spanning tree from graph
+     *
+     * @param graph graph from which we should create spanning tree
+     * @param by_weight flag that shows if we should sort spanning tree by weight
+     *
+     * @return graph where shows connection for spanning tree from specified graph
+     */
     template <typename GraphType>
     static auto spanning_tree_BFS (const std::shared_ptr<GraphType>& graph, bool by_weight = false) {
         static_assert(std::is_same<GraphType, GraphMatrix>() || std::is_same<GraphType, GraphStruct>(),
@@ -174,6 +237,16 @@ public:
         }
         return result;
     }
+
+    /**
+     * @brief Creating minimal spanning tree from graph
+     *
+     * Using Boruvka's algorithm for finding minimal spanning tree.
+     *
+     * @param graph graph from which we should create spanning tree
+     *
+     * @return graph where shows connection for minimal spanning tree from specified graph
+     */
     template <typename GraphType>
     static auto minimal_spanning_tree (const std::shared_ptr<GraphType>& graph) {
         static_assert(std::is_same<GraphType, GraphMatrix>() || std::is_same<GraphType, GraphStruct>(),

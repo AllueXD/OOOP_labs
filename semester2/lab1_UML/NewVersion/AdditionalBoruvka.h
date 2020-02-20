@@ -5,26 +5,49 @@
 #include <vector>
 #include <cassert>
 
-bool compare_weight (std::pair<int,int> left, std::pair<int,int> right) {
-    return left.second<right.second;
-}
+
 
 class boruvka_subset {
     std::vector<int> vertexes;
 
 public:
+    /**
+     * @brief Simple getter for vertex by index
+     *
+     * @return vertex at index
+     */
     int get_vertex(int index) const {
         return vertexes[index];
     }
 
+    /**
+     * @brief Simple getter for size of vector of vertices
+     *
+     * @return size of vector
+     */
     int get_size() const {
         return vertexes.size();
     }
+
+    /**
+     * @brief Adding new element to vector of vertices
+     *
+     * Checks if element can be vertex (>=0) and adding to vector if so, else throwing assert
+     *
+     * @param element vertex number
+     *
+     */
     void add(int element) {
         assert(element>=0);
         vertexes.push_back(element);
     }
 
+    /**
+     * @brief Finding lowest connection from this set to any other
+     *
+     * @param lows vector with the cheapest connections for every vertex from graph
+     * @return pair of two connected vertices
+     */
     std::pair<int,int> lowest_in_subset (std::vector<std::pair<int,int>>& lows) {
         int min = lows[vertexes[0]].second;
         std::pair<int,int> vert_with_min = {vertexes[0], lows[vertexes[0]].first};
@@ -38,6 +61,15 @@ public:
     }
 };
 
+    /**
+     * @brief Finding in which subset lays vertex
+     *
+     * @param vector with all available subsets
+     * @param vert vertex for which we searching subset
+     * @param amount_of_component current amount of subsets
+     *
+     * @return subset index in vector of subsets
+     */
 int find_subset_by_vert (std::vector<boruvka_subset>& subs, int vert, int amount_of_component) {
     for (int i = 0; i < amount_of_component; i++) {
         for (int j = 0; j < subs[i].get_size(); j++) {
@@ -46,6 +78,19 @@ int find_subset_by_vert (std::vector<boruvka_subset>& subs, int vert, int amount
     }
 }
 
+    /**
+     * @brief Union two subsets by vertices
+     *
+     * Finding index of subset in vector of subsets for first vertex and same for second vertex.
+     * Then union this two subsets in one subset with all their vertices.
+     * And decrease by one amount of subsets.
+     *
+     * @param subs current vector of subsets
+     * @param vert1 first vertex for union
+     * @param vert2 second vertex for union
+     * @param amount_of_component current amount of subsets
+     *
+    */
 void union_subsets (std::vector<boruvka_subset>& subs, int vert1, int vert2, int* amount_of_component) {
     int subset_of_vert1, subset_of_vert2;
     subset_of_vert1 = find_subset_by_vert(subs, vert1, *amount_of_component);
