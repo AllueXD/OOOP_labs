@@ -63,6 +63,7 @@ namespace graph {
 
     template <typename T>
     void Graph<T>::eraseVertex(int index) {
+        assert(index < amountOfVertices);
         info.erase(info.begin() + index);
         amountOfVertices--;
         auto it = edges.begin();
@@ -75,12 +76,12 @@ namespace graph {
             }
         }
 
-        for (auto item : edges) {
-            if (item.from > index) {
-                item.from--;
+        for (int i = 0; i < amountOfEdges; i++) {
+            if (edges[i].from > index) {
+                edges[i].from--;
             }
-            if (item.to > index) {
-                item.to--;
+            if (edges[i].to > index) {
+                edges[i].to--;
             }
         }
     }
@@ -111,6 +112,7 @@ namespace graph {
         int index = getEdgeIndex(first,second);
         if (index != -1) {
             edges.erase(edges.begin() + index);
+            amountOfEdges--;
         }
     }
 

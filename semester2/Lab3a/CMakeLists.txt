@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 option(BUILD_TESTS "Build tests" ON)
 
+
 if (BUILD_TESTS)
     add_executable(tests tests.cpp)
 endif()
