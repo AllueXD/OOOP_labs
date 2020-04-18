@@ -26,6 +26,7 @@ namespace graph {
     template <typename T>
     Graph<T>::Graph(const std::vector<T> &_info)
             : amountOfVertices(_info.size()) {
+                info.reserve(amountOfVertices);
         for (auto item : _info) {
             info.push_back(item);
         }
@@ -42,6 +43,15 @@ namespace graph {
 
         for (auto item : graph.edges) {
             edges.push_back(Edge(item.from, item.to, item.weight));
+        }
+    }
+
+    template <typename T>
+    Graph<T>::Graph(std::initializer_list<T> elems)
+        : amountOfVertices(elems.size())  {
+            info.reserve(amountOfVertices);
+        for (const auto& item : elems) {
+            info.push_back(item);
         }
     }
 
@@ -64,16 +74,15 @@ namespace graph {
                 it++;
             }
         }
-    }
 
-    template <typename T>
-    void Graph<T>::addEdge(int first, int second) {
-        assert(first < amountOfVertices && second < amountOfVertices);
-        if (changeEdgeWeight(first, second, info[first] - info[second])) {
-            return;
+        for (auto item : edges) {
+            if (item.from > index) {
+                item.from--;
+            }
+            if (item.to > index) {
+                item.to--;
+            }
         }
-        edges.push_back(Edge(first, second, info[first] - info[second]));
-        amountOfEdges++;
     }
 
     template <typename T>
@@ -98,6 +107,14 @@ namespace graph {
     }
 
     template <typename T>
+    void Graph<T>::eraseEdge(int first, int second) {
+        int index = getEdgeIndex(first,second);
+        if (index != -1) {
+            edges.erase(edges.begin() + index);
+        }
+    }
+
+    template <typename T>
     const std::vector<T>& Graph<T>::getInfo() const {
         return info;
     }
@@ -115,11 +132,6 @@ namespace graph {
     template <typename T>
     const std::vector<typename Graph<T>::Edge>& Graph<T>::getEdges() const {
         return edges;
-    }
-
-    template <typename T>
-    const typename Graph<T>::Edge& Graph<T>::getEdge(int index) const {
-        return edges[index];
     }
 
     template <typename T>

@@ -30,19 +30,19 @@ namespace graph {
         Graph() = default;
         explicit Graph(const std::vector<T> &_info);
         Graph(const Graph &graph);
+        explicit Graph(std::initializer_list<T> elems);
 
-        void addVertex(const T &vertInfo);
+        void addVertex(const T& vertInfo);
         void eraseVertex(int index);
 
-        void addEdge(int first, int second);
         void addEdge(int first, int second, int weight);
         bool changeEdgeWeight(int first, int second, int weight);
+        void eraseEdge(int first, int second);
 
         const std::vector<T>& getInfo() const;
         int getAmountOfVertices() const;
         int getAmountOfEdges() const;
         const std::vector<Edge>& getEdges() const;
-        const Edge& getEdge(int index) const;
 
         bool isConnected(int first, int second) const;
         void print();
