@@ -65,20 +65,5 @@ namespace graph::algorithm::impl {
             return distances;
         }
     };
-
-
-
-//    bool operator==(const DijkstraVertices &left, const DijkstraVertices &right) {
-//        return (left.index == right.index);
-//    }
-//
-//    bool operator!=(const DijkstraVertices &left, const DijkstraVertices &right) {
-//        return (left.index != right.index);
-//    }
-//
-//    bool operator<(const DijkstraVertices &left, const DijkstraVertices &right) {
-//        return (left.upperWeight < right.upperWeight);
-//    }
-
 }
 
