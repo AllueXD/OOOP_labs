@@ -1,0 +1,3 @@
+[submodule "semester2/Lab3a/3rdparty/semester2/Lab3a/3rdparty/benchmark"]
+	path = semester2/Lab3a/3rdparty/semester2/Lab3a/3rdparty/benchmark
+	url = git@github.com:google/benchmark.git
