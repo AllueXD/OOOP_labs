@@ -3,39 +3,20 @@
 #include "../include/Graph.hpp"
 #include "BellmanFord.hpp"
 #include "Dijkstra.hpp"
+#include "JohnsonBase.hpp"
 
 namespace graph::algorithm::impl {
 
     template<typename T>
-    class JohnsonAlgorithm {
+    class JohnsonAlgorithm : public JohnsonBase<T> {
     private:
-        Graph <T> graph;
-        int amountOfVertices;
-        std::vector<std::vector<int>> distances;
-        std::vector<int> distancesForModified;
+        using JohnsonBase<T>::amountOfVertices;
+        using JohnsonBase<T>::distances;
+        using JohnsonBase<T>::graph;
+        using JohnsonBase<T>::checkBellmanFord;
+        using JohnsonBase<T>::updateNegativeEdges;
 
-        void modifyGraph() {
-            graph.addVertex(T());
-            for (int i = 0; i < amountOfVertices; i++) {
-                graph.addEdge(amountOfVertices, i, 0);
-            }
-        }
-
-        bool checkBellmanFord() {
-            BellmanFordAlgorithm algo(graph, amountOfVertices);
-            distancesForModified = algo.getResult();
-            return (!distancesForModified.empty());
-        }
-
-        void updateNegativeEdges() {
-            graph.eraseVertex(amountOfVertices);
-            for (const auto &item : graph.getEdges()) {
-                graph.changeEdgeWeight(item.from, item.to,
-                                       item.weight + distancesForModified[item.from] - distancesForModified[item.to]);
-            }
-        }
-
-        void calculateDistancesForEachVertex() {
+        void calculateDistancesForEachVertex() override {
             for (int i = 0; i < amountOfVertices; i++) {
                 DijkstraAlgorithm algo(graph, i);
                 distances.push_back(algo.getResult());
@@ -43,18 +24,13 @@ namespace graph::algorithm::impl {
         }
 
     public:
-        explicit JohnsonAlgorithm(const Graph <T> &_graph) : graph(_graph),
-                                                             amountOfVertices(_graph.getAmountOfVertices()) {
-            modifyGraph();
+        using JohnsonBase<T>::getResult;
+        JohnsonAlgorithm(const Graph <T>& _graph) : JohnsonBase<T>(_graph) {
             if (checkBellmanFord()) {
                 updateNegativeEdges();
                 distances.reserve(amountOfVertices);
                 calculateDistancesForEachVertex();
             }
-        }
-
-        std::vector<std::vector<int>> getResult() {
-            return distances;
         }
     };
 }

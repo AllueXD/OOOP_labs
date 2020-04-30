@@ -263,3 +263,50 @@ TEST_CASE("Graph's Johnson algorithm for all vertices") {
         REQUIRE(johnsonResult[3] == std::vector{INT_MAX, INT_MAX, INT_MAX, 0});
     }
 }
+
+TEST_CASE("Graph's Johnson algorithm for all vertices: Parallel Version") {
+            SUBCASE("Non-negative without cycle") {
+        graph::Graph<int> graph({0,1,2,3,4,5,6});
+        graph.addEdge(0, 1, 6);
+        graph.addEdge(1, 2, 5);
+        graph.addEdge(2, 3, 4);
+        graph.addEdge(3, 4, 3);
+        graph.addEdge(4, 5, 2);
+        graph.addEdge(5, 6, 1);
+
+        std::vector<std::vector<int>> johnsonResult = algorithm::Johnson(graph, true);
+                REQUIRE(johnsonResult[0] == std::vector{0, 6, 11, 15, 18, 20, 21});
+                REQUIRE(johnsonResult[1] == std::vector{INT_MAX, 0, 5, 9, 12, 14, 15});
+                REQUIRE(johnsonResult[2] == std::vector{INT_MAX, INT_MAX, 0, 4, 7, 9, 10});
+                REQUIRE(johnsonResult[3] == std::vector{INT_MAX, INT_MAX, INT_MAX, 0, 3, 5, 6});
+                REQUIRE(johnsonResult[4] == std::vector{INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, 2, 3});
+                REQUIRE(johnsonResult[5] == std::vector{INT_MAX, INT_MAX, INT_MAX,
+                                                        INT_MAX, INT_MAX, 0, 1});
+                REQUIRE(johnsonResult[6] == std::vector{INT_MAX, INT_MAX, INT_MAX,
+                                                        INT_MAX, INT_MAX, INT_MAX, 0});
+    }
+            SUBCASE("With negative cycle") {
+        graph::Graph<int> graph({0,1,2,3,4});
+        graph.addEdge(0, 1, 99);
+        graph.addEdge(1, 2, 15);
+        graph.addEdge(2, 3, 10);
+        graph.addEdge(2, 1, -42);
+        graph.addEdge(0, 4, -99);
+
+                REQUIRE(algorithm::Johnson(graph, true).empty());
+    }
+            SUBCASE("With negative edges") {
+        graph::Graph<int> graph({0, 1, 2, 3});
+        graph.addEdge(0, 1, -5);
+        graph.addEdge(0, 2, 2);
+        graph.addEdge(0, 3, 3);
+        graph.addEdge(1, 2, 4);
+        graph.addEdge(2, 3, 1);
+
+        std::vector<std::vector<int>> johnsonResult = algorithm::Johnson(graph, true);
+                REQUIRE(johnsonResult[0] == std::vector{0, 0, 0, 0});
+                REQUIRE(johnsonResult[1] == std::vector{INT_MAX, 0, 0, 0});
+                REQUIRE(johnsonResult[2] == std::vector{INT_MAX, INT_MAX, 0, 0});
+                REQUIRE(johnsonResult[3] == std::vector{INT_MAX, INT_MAX, INT_MAX, 0});
+    }
+}
