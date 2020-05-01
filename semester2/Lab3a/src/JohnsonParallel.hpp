@@ -26,36 +26,18 @@ namespace graph::algorithm::impl {
 
         void calculateDistancesForEachVertex() override {
             distances.resize(amountOfVertices);
-            int firstPartEnd = (int)(amountOfVertices / 4);
-            std::thread first([firstPartEnd, this]
-                            {calculateDistancesInRange(0, firstPartEnd);});
-            if (amountOfVertices > 1) {
-                int secondPartEnd = (int)(amountOfVertices / 2);
-                std::thread second([firstPartEnd, secondPartEnd, this]
-                                   {calculateDistancesInRange(firstPartEnd + 1, secondPartEnd);});
-                if (amountOfVertices > 2) {
-                    int thirdPartEnd = (int)(3 * amountOfVertices / 4);
-                    std::thread third([thirdPartEnd, secondPartEnd, this]
-                                      {calculateDistancesInRange(secondPartEnd + 1, thirdPartEnd);});
-                    if (amountOfVertices > 3) {
-                        int fourthPartEnd = amountOfVertices - 1;
-                        std::thread fourth([thirdPartEnd, fourthPartEnd, this]
-                        {calculateDistancesInRange(thirdPartEnd + 1, fourthPartEnd);});
-                        first.join();
-                        second.join();
-                        third.join();
-                        fourth.join();
-                    } else {
-                        first.join();
-                        second.join();
-                        third.join();
-                    }
-                } else {
-                    first.join();
-                    second.join();
-                }
-            } else {
-                first.join();
+            int HW_concurrency = std::thread::hardware_concurrency();
+            std::vector<std::thread> threads(HW_concurrency);
+            int start = 0, end = -1;
+            for (int i = 0; i < HW_concurrency; i++) {
+                start = end + 1;
+                end = (int)((i + 1) * amountOfVertices / 4);
+                threads[i] = std::thread([start, end, this]
+                                         {calculateDistancesInRange(start, end);});
+            }
+
+            for (auto& th : threads) {
+                th.join();
             }
         }
 
