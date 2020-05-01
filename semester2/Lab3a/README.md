@@ -1,7 +1,7 @@
-# Lab 3a (Multithreading on example of Johnson algorithm)
+# Lab 3a (Multithreading on example of Johnson's algorithm)
 
 ## Description
-Johnson algorithm for sparse graphs calculating all-pair shortest distances using Bellman-Ford algorithm to detect negative cycles and reweight negative edges and Dijkstra algorithm for fast distances calculating for all vertices.
+Johnson algorithm for sparse graphs calculating all-pair shortest distances using Bellman-Ford's algorithm to detect negative cycles and reweight negative edges and Dijkstra's algorithm for fast distances calculating for all vertices.
 
 
 In parallel version after graph's reweight we devide all vertices on intervals and calculate distances for each vertex of interval in different threads (amount of threads depends on hardware concurrency).
@@ -28,7 +28,7 @@ Amount of vertices | Time
 1000 | 18460
 
 
-Johnson's algorithm with multitreading
+Johnson's algorithm with multithreading
 Amount of vertices | Time
 ------------ | -------------
 100 | 16.1
