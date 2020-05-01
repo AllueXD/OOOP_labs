@@ -7,4 +7,4 @@ In parallel version after graph's reweight we devide all vertices on intervals a
 
 
 Benchmark results, run on (4 X 2400 MHz CPU s)
-![](https://ibb.co/JBCcpWT)
+![](https://i.ibb.co/ngRw1qy/20200501062150.png)
