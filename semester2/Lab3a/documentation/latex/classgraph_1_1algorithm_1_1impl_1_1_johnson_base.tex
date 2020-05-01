@@ -1,0 +1,83 @@
+\hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base}{}\doxysection{graph\+::algorithm\+::impl\+::Johnson\+Base$<$ T $>$ Class Template Reference}
+\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base}\index{graph::algorithm::impl::JohnsonBase$<$ T $>$@{graph::algorithm::impl::JohnsonBase$<$ T $>$}}
+
+
+Base class for parts of Johnson\textquotesingle{}s algorithm that the same for simple and multithreading versions.  
+
+
+
+
+{\ttfamily \#include $<$Johnson\+Base.\+hpp$>$}
+
+Inheritance diagram for graph\+::algorithm\+::impl\+::Johnson\+Base$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgraph_1_1algorithm_1_1impl_1_1_johnson_base}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_af12f51a84485017c9a6c71bd67f96945}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_af12f51a84485017c9a6c71bd67f96945}} 
+{\bfseries Johnson\+Base} (const \mbox{\hyperlink{classgraph_1_1_graph}{Graph}}$<$ T $>$ \&\+\_\+graph)
+\item 
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a92b3d33ae39330b2df0b77f2b8cec81c}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a92b3d33ae39330b2df0b77f2b8cec81c}} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries get\+Result} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_ad4931ccbe287565d2aa07b79e42d7c83}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_ad4931ccbe287565d2aa07b79e42d7c83}} 
+void \mbox{\hyperlink{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_ad4931ccbe287565d2aa07b79e42d7c83}{modify\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Adding one vertex to graph and connecting this vertex to every other vertex in the graph with weight 0. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a25d82731f2bfd2dbf8ee5f0c0e0cab4c}{check\+Bellman\+Ford}} ()
+\begin{DoxyCompactList}\small\item\em Calculating shortest distances for added vertex with Bellman-\/\+Ford\textquotesingle{}s algorithm. Allows as to detect negative cycle in the graph. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a44446dde646d5b344d15659f013c8b8c}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a44446dde646d5b344d15659f013c8b8c}} 
+void \mbox{\hyperlink{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a44446dde646d5b344d15659f013c8b8c}{update\+Negative\+Edges}} ()
+\begin{DoxyCompactList}\small\item\em With result of Bellman-\/\+Ford algorithm we can reweight our graph so he wouldn\textquotesingle{}t have negative edges. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a83e6375f9f2cee6a6f2bb6c72cb514cc}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a83e6375f9f2cee6a6f2bb6c72cb514cc}} 
+virtual void {\bfseries calculate\+Distances\+For\+Each\+Vertex} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a554a3c62a1a6dd8184748f31571e5e89}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a554a3c62a1a6dd8184748f31571e5e89}} 
+\mbox{\hyperlink{classgraph_1_1_graph}{Graph}}$<$ T $>$ {\bfseries graph}
+\item 
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_af8c81bc1df034bfa5439a23971ae93ba}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_af8c81bc1df034bfa5439a23971ae93ba}} 
+int {\bfseries amount\+Of\+Vertices}
+\item 
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_ab6dac351edd975f5b48478e20d691118}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_ab6dac351edd975f5b48478e20d691118}} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries distances}
+\item 
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_acc8a563c9e74e7d6f683bba95ed1061f}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_acc8a563c9e74e7d6f683bba95ed1061f}} 
+std\+::vector$<$ int $>$ {\bfseries distances\+For\+Modified}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class graph\+::algorithm\+::impl\+::\+Johnson\+Base$<$ T $>$}
+
+Base class for parts of Johnson\textquotesingle{}s algorithm that the same for simple and multithreading versions. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a25d82731f2bfd2dbf8ee5f0c0e0cab4c}\label{classgraph_1_1algorithm_1_1impl_1_1_johnson_base_a25d82731f2bfd2dbf8ee5f0c0e0cab4c}} 
+\index{graph::algorithm::impl::JohnsonBase$<$ T $>$@{graph::algorithm::impl::JohnsonBase$<$ T $>$}!checkBellmanFord@{checkBellmanFord}}
+\index{checkBellmanFord@{checkBellmanFord}!graph::algorithm::impl::JohnsonBase$<$ T $>$@{graph::algorithm::impl::JohnsonBase$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{checkBellmanFord()}{checkBellmanFord()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classgraph_1_1algorithm_1_1impl_1_1_johnson_base}{graph\+::algorithm\+::impl\+::\+Johnson\+Base}}$<$ T $>$\+::check\+Bellman\+Ford (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Calculating shortest distances for added vertex with Bellman-\/\+Ford\textquotesingle{}s algorithm. Allows as to detect negative cycle in the graph. 
+
+\begin{DoxyReturn}{Returns}
+If graph has a negative cycle. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Johnson\+Base.\+hpp\end{DoxyCompactItemize}

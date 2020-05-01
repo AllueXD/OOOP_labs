@@ -1,0 +1,57 @@
+\hypertarget{classgraph_1_1_graph}{}\doxysection{graph\+::Graph$<$ T $>$ Class Template Reference}
+\label{classgraph_1_1_graph}\index{graph::Graph$<$ T $>$@{graph::Graph$<$ T $>$}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgraph_1_1_graph_1_1_edge}{Edge}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a37ecde9d320dfa5c7dbbc3bfa6025824}\label{classgraph_1_1_graph_a37ecde9d320dfa5c7dbbc3bfa6025824}} 
+{\bfseries Graph} (const std\+::vector$<$ T $>$ \&\+\_\+info)
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a85f222c9f8d7f047e4b6abdd68a3c7c6}\label{classgraph_1_1_graph_a85f222c9f8d7f047e4b6abdd68a3c7c6}} 
+{\bfseries Graph} (const \mbox{\hyperlink{classgraph_1_1_graph}{Graph}} \&graph)
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a11f406face3d4790ffd87a8439855227}\label{classgraph_1_1_graph_a11f406face3d4790ffd87a8439855227}} 
+{\bfseries Graph} (std\+::initializer\+\_\+list$<$ T $>$ elems)
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a2b3384f4df03571624e03c47a1d40ecf}\label{classgraph_1_1_graph_a2b3384f4df03571624e03c47a1d40ecf}} 
+void {\bfseries add\+Vertex} (const T \&vert\+Info)
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_acfb6cd942da173fccabd63914a321878}\label{classgraph_1_1_graph_acfb6cd942da173fccabd63914a321878}} 
+void {\bfseries erase\+Vertex} (int index)
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a3a5e71a1b37f53e9714a7a6ab5bf2c75}\label{classgraph_1_1_graph_a3a5e71a1b37f53e9714a7a6ab5bf2c75}} 
+void {\bfseries add\+Edge} (int first, int second, int weight)
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a40a96734aca48b9927097aad6f972512}\label{classgraph_1_1_graph_a40a96734aca48b9927097aad6f972512}} 
+bool {\bfseries change\+Edge\+Weight} (int first, int second, int weight)
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a02233deb9b0cee97c99828ba4a92715b}\label{classgraph_1_1_graph_a02233deb9b0cee97c99828ba4a92715b}} 
+void {\bfseries erase\+Edge} (int first, int second)
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a64aa7cfda11b11532385320a3cbb203d}\label{classgraph_1_1_graph_a64aa7cfda11b11532385320a3cbb203d}} 
+const std\+::vector$<$ T $>$ \& {\bfseries get\+Info} () const
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_afe42f0f31198acfe8741e92299816b13}\label{classgraph_1_1_graph_afe42f0f31198acfe8741e92299816b13}} 
+int {\bfseries get\+Amount\+Of\+Vertices} () const
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a885ff52ea559bd7d1a9274273f57ef34}\label{classgraph_1_1_graph_a885ff52ea559bd7d1a9274273f57ef34}} 
+int {\bfseries get\+Amount\+Of\+Edges} () const
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_ab3be510aa37e99167f0a39ba06bce47f}\label{classgraph_1_1_graph_ab3be510aa37e99167f0a39ba06bce47f}} 
+const std\+::vector$<$ \mbox{\hyperlink{structgraph_1_1_graph_1_1_edge}{Edge}} $>$ \& {\bfseries get\+Edges} () const
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_a332bbeba07fbdf9ed8518df8164fa0c0}\label{classgraph_1_1_graph_a332bbeba07fbdf9ed8518df8164fa0c0}} 
+bool {\bfseries is\+Connected} (int first, int second) const
+\item 
+\mbox{\Hypertarget{classgraph_1_1_graph_ad55bf7e46184b15393b751d110824c3d}\label{classgraph_1_1_graph_ad55bf7e46184b15393b751d110824c3d}} 
+void {\bfseries print} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Graph.\+hpp\end{DoxyCompactItemize}
